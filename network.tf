@@ -11,8 +11,8 @@ resource "random_uuid" "namer" {}
 // open up port security security group
 resource "ibm_is_security_group" "f5_open_sg" {
   name           = "sg-${random_uuid.namer.result}"
-  vpc            = data.ibm_is_subnet.f5_managment_subnet.vpc
-  resource_group = data.ibm_is_subnet.f5_managment_subnet.resource_group
+  vpc            = data.ibm_is_subnet.f5_management_subnet.vpc
+  resource_group = data.ibm_is_subnet.f5_management_subnet.resource_group
 }
 
 // allow all inbound
