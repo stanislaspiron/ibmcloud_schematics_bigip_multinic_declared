@@ -95,6 +95,15 @@ variable "management_subnet_id" {
 }
 
 ##################################################################################
+# management_security_group - The VPC security group ID for the F5 BIG-IP management interface
+##################################################################################
+variable "management_security_group" {
+  type        = string
+  default     = null
+  description = "Required VPC Gen2 security group ID for the F5 BIG-IP management network"
+}
+
+##################################################################################
 # cluster_subnet_id - The VPC subnet ID for the F5 BIG-IP configsync interface
 ##################################################################################
 variable "cluster_subnet_id" {
@@ -119,6 +128,15 @@ variable "external_subnet_id" {
   type        = string
   default     = ""
   description = "Required VPC Gen2 subnet ID for the F5 BIG-IP virtual service listeners"
+}
+
+##################################################################################
+# tmm_security_group - The VPC security group ID for the F5 BIG-IP management interface
+##################################################################################
+variable "tmm_security_group" {
+  type        = string
+  default     = null
+  description = "Required VPC Gen2 security group ID for the F5 BIG-IP tmm networks"
 }
 
 ##################################################################################
