@@ -1,4 +1,4 @@
-data "ibm_is_subnet" "f5_managment_subnet" {
+data "ibm_is_subnet" "f5_management_subnet" {
   identifier = var.management_subnet_id
 }
 
