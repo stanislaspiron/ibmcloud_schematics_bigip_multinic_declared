@@ -9,9 +9,13 @@ locals {
 resource "random_uuid" "namer" {}
 
 resource "ibm_is_security_group" "f5_management_sg" {
-  identifier = var.management_security_group
+  name           = var.management_security_group
+  vpc            = data.ibm_is_subnet.f5_managment_subnet.vpc
+  resource_group = data.ibm_is_subnet.f5_managment_subnet.resource_group
 }
 
 resource "ibm_is_security_group" "f5_tmm_sg" {
-  identifier = var.tmm_security_group
+  name           = var.tmm_security_group
+  vpc            = data.ibm_is_subnet.f5_managment_subnet.vpc
+  resource_group = data.ibm_is_subnet.f5_managment_subnet.resource_group
 }
