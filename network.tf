@@ -8,7 +8,7 @@ locals {
 
 resource "random_uuid" "namer" {}
 
-resource "ibm_is_security_group" "f5_mgmt_sg" {
+resource "ibm_is_security_group" "f5_management_sg" {
   identifier = var.management_security_group
 }
 
