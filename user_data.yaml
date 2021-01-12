@@ -23,6 +23,14 @@ tmos_dhcpv4_tmm:
   as3_declaration_url: ${as3_declaration_url}
   ts_enabled: true
   ts_declaration_url: ${ts_declaration_url}
+  post_onboard_enabled: true
+  post_onboard_commands:
+  - "/usr/share/ts/bin/add_del_internal add guarantee_remote_logging 0"
+  - "/usr/share/ts/bin/add_del_internal add cookie_secure_attr 1"
+  - "/usr/share/ts/bin/add_del_internal add long_request_buffer_size 20000000"
+  - "/usr/share/ts/bin/add_del_internal add total_xml_memory 1000000000"
+  - "/usr/share/ts/bin/add_del_internal add bypass_upon_asm_down 1"
+  - "/usr/share/ts/bin/add_del_internal add bypass_upon_load 1"
   phone_home_url: ${phone_home_url}
   phone_home_url_verify_tls: false
   phone_home_url_metadata:
