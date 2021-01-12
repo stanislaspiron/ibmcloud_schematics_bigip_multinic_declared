@@ -32,6 +32,7 @@ tmos_dhcpv4_tmm:
   - "/usr/share/ts/bin/add_del_internal add bypass_upon_asm_down 1"
   - "/usr/share/ts/bin/add_del_internal add bypass_upon_load 1"
   - "tmsh create ltm data-group internal bnppRouter_adminState type string records replace-all-with { enabled { data true }}"
+  - "tmsh modify /security firewall management-ip-rules rules add { net_10 { action accept description net_10.0.0.0/8 ip-protocol any log yes source { addresses add { 10.0.0.0/8 } } place-before last } }"
   phone_home_url: ${phone_home_url}
   phone_home_url_verify_tls: false
   phone_home_url_metadata:
