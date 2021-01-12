@@ -113,14 +113,16 @@ resource "ibm_is_instance" "f5_ve_instance" {
   primary_network_interface {
     name            = "management"
     subnet          = data.ibm_is_subnet.f5_management_subnet.id
-    security_groups = [ibm_is_security_group.f5_management_sg.id]
+#    security_groups = [ibm_is_security_group.f5_management_sg.id]
+    security_groups = [var.management_security_group]
   }
   dynamic "network_interfaces" {
     for_each = local.secondary_subnets
     content {
       name              = format("data-1-%d", (network_interfaces.key + 1))
       subnet            = network_interfaces.value
-      security_groups   = [ibm_is_security_group.f5_tmm_sg.id]
+#      security_groups   = [ibm_is_security_group.f5_tmm_sg.id]
+      security_groups   = [var.tmm_security_group]
       allow_ip_spoofing = true
     }
   }
